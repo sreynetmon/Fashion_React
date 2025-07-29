@@ -29,7 +29,7 @@ const schemaValidation = z.object({
     fuel_type: z.string().min(1, "Fuel type is required"),
     transmission: z.string().min(1, "Transmission is required"),
     description: z.string().optional(),
-    image: z.string().min("Image must be a valid URL"),
+    image: z.string().min(1,"Image must be a valid URL"),
 
 })
 
@@ -77,68 +77,68 @@ export default function ProductsForm() {
     return (
         <>
         <div className="container w-full h-auto mx-auto"> 
-            <form {...Form} onSubmit={handleSubmit(onSubmit)} className="w-[50%] gap-4 border-1 p-5 rounded-lg grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 mx-auto justify-items-center">
+            <form {...Form} onSubmit={handleSubmit(onSubmit)} className="w-[80%] gap-4 border-1 p-5 rounded-lg flex flex-col mx-auto justify-items-center">
                   <div>
                       <div className="mb-2 block">
                           <Label htmlFor="email1">Make</Label>
                       </div>
-                      <input id="email1" type="text" placeholder="Car Make" required {...register("make")}  className='border p-2 rounded-lg'/>
+                      <input id="email1" type="text" placeholder="Car Make" required {...register("make")}  className='border p-2 rounded-lg w-full'/>
                   </div>
                   <div>
                       <div className="mb-2 block">
                           <Label htmlFor="password1">Model</Label>
                       </div>
-                      <input id="password1" type="text" placeholder="Car Model" required {...register("model")} className='border p-2 rounded-lg'/>
+                      <input id="password1" type="text" placeholder="Car Model" required {...register("model")} className='border p-2 rounded-lg w-full'/>
                   </div>
                   <div>
                       <div className="mb-2 block">
                           <Label htmlFor="year">Year</Label>
                       </div>
-                      <input id="year" type="number" placeholder="Car Year" required {...register("year")} className='border p-2 rounded-lg' />
+                      <input id="year" type="number" placeholder="Car Year" required {...register("year")} className='border p-2 rounded-lg w-full' />
                   </div>
                   <div>
                       <div className="mb-2 block">
                           <Label htmlFor="price">Price</Label>
                       </div>
-                      <input id="price" type="number" placeholder="price" required {...register("Price")} className='border p-2 rounded-lg' />
+                      <input id="price" type="number" placeholder="price" required {...register("price")} className='border p-2 rounded-lg w-full' />
                   </div>
                   <div>
                       <div className="mb-2 block">
                           <Label htmlFor="mileage">Mileage</Label>
                       </div>
-                      <input id="mileage" type="number" placeholder="Car Mileage" required {...register("mileage")} className='border p-2 rounded-lg' />
+                      <input id="mileage" type="number" placeholder="Car Mileage" required {...register("mileage")} className='border p-2 rounded-lg w-full' />
                   </div>
                   <div>
                       <div className="mb-2 block">
                           <Label htmlFor="color">Color</Label>
                       </div>
-                      <input id="color" type="text" placeholder="Car Color" required {...register("color")} className='border p-2 rounded-lg' />
+                      <input id="color" type="text" placeholder="Car Color" required {...register("color")} className='border p-2 rounded-lg w-full' />
                   </div>
                   <div>
                       <div className="mb-2 block">
                           <Label htmlFor="fuel_type">Fuel Type</Label>
                       </div>
-                      <input id="fuel_type" type="text" placeholder="Car Fuel Type" required {...register("fuel_type")} className='border p-2 rounded-lg' />
+                      <input id="fuel_type" type="text" placeholder="Car Fuel Type" required {...register("fuel_type")} className='border p-2 rounded-lg w-full' />
                   </div>
                   <div>
                       <div className="mb-2 block">
                           <Label htmlFor="transmission">Transmission</Label>
                       </div>
-                      <input id="transmission" type="text" placeholder="Car Transmission" required {...register("transmission")} className='border p-2 rounded-lg'/>
+                      <input id="transmission" type="text" placeholder="Car Transmission" required {...register("transmission")} className='border p-2 rounded-lg w-full'/>
                   </div>
                   <div>
                       <div className="mb-2 block">
                           <Label htmlFor="description">Description</Label>
                       </div>
-                      <input id="description" type="text" placeholder="Car Description" required {...register("description")} className='border p-2 rounded-lg' />
+                      <input id="description" type="text" placeholder="Car Description" required {...register("description")} className='border p-2 rounded-lg w-full'  />
                   </div>
                   <div>
                       <div className="mb-2 block">
                           <Label htmlFor="image">Image</Label>
                       </div>
-                      <input id="image" type="text" placeholder="Car Image URL" required {...register("image")} className='border p-2 rounded-lg'/>
+                      <input id="image" type="text" placeholder="Car Image URL" required {...register("image")} className='border p-2 rounded-lg w-full'/>
                   </div>
-                  <Button type="submit" className="w-[500px] col-span-2">Submit</Button>
+                  <Button type="submit" className="w-full">Submit</Button>
             </form>
         </div>
         </>

@@ -8,7 +8,7 @@ import DataTableProduct from '../Components/Cards/DataTableProduct'
 export default function Contact() {
   const {data = [], isLoading, error} = useGetProductsQuery({
     page : 1,
-    limit: 4
+    limit: 1
   })
   console.log(isLoading);
   console.log(error)

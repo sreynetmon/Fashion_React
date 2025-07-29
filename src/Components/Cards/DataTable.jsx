@@ -3,11 +3,11 @@ import { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from 
 
 export default function DataTable({image, make, color, year, price}) {
     return (
-        <div className="overflow-x-auto p-8">
+        <div className="container mx-auto overflow-x-auto p-10">
             <Table striped>
                 {/* header */}
                 <TableHead>
-                    <TableRow>
+                    <TableRow >
                         <TableHeadCell>Photo</TableHeadCell>
                         <TableHeadCell>Make</TableHeadCell>
                         <TableHeadCell>Color</TableHeadCell>
@@ -20,7 +20,7 @@ export default function DataTable({image, make, color, year, price}) {
                 </TableHead>
                 {/* body data */}
                 <TableBody >
-                    <TableRow >
+                    <TableRow>
                         {/* image */}
                          <TableCell>
                             <img src={image} alt={make} width={35} height={35}/>
