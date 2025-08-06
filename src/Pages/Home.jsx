@@ -1,6 +1,4 @@
 import React from 'react'
-import Header from '../Layout/Header';
-import Footer from '../Layout/Footer';
 import Content from '../Components/Cards/Content';
 import style from '../assets/image/style.jpg'
 import ProductCollection from '../Components/Cards/ProductCollection';

@@ -1,6 +1,4 @@
 import React from 'react'
-import Header from '../Layout/Header'
-import Footer from '../Layout/Footer';
 import cloth1 from '../assets/image/cloth1.jpg'
 import cloth2 from '../assets/image/cloth2.jpg'
 

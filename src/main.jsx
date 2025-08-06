@@ -9,13 +9,13 @@ import Home from './Pages/Home';
 import Collection from './Pages/Collection';
 import About from './Pages/About';
 import Contact from './Pages/Contact';
-import AuthLayout from './Layout/AuthLayout';
-// import Login from './Components/Auth/Login';
-import SignUp from './Components/Auth/SignUp';
+// import AuthLayout from './Layout/AuthLayout';
+import SignUp from './Components/oauth/SignUp';
 import {store} from './Components/redux/store';
 import { Provider } from "react-redux";
 import ProductsDetail from "./Pages/ProductsDetail";
 import RootLayout from "./Layout/RootLayout";
+import Login from "./Components/oauth/Login";
 
 
 const router = createBrowserRouter([
@@ -42,16 +42,19 @@ const router = createBrowserRouter([
   {
     path: "collection/:id",
     Component: ProductsDetail
-  },
+  }
     ]
   },
   {
     path: "auth",
-    Component: AuthLayout,
     children:[
       {
         path: "signup",
         Component: SignUp
+      },
+      {
+        path: "login",
+        Component: Login
       }
     ]
   }

@@ -13,9 +13,9 @@ export default function Header() {
         <img src={Logo} className="mx-auto h-20 w-auto" alt="logo" />
       </NavbarBrand>
       <div className="flex md:order-2 gap-2">
-        {/* <NavLink to="/auth/login">
+        <NavLink to="auth/login">
           <Button>Login</Button>
-        </NavLink> */}
+        </NavLink>
         <NavLink to="/auth/signup">
           <Button>Sign Up</Button>
         </NavLink>

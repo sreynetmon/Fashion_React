@@ -12,7 +12,7 @@ export default function SignUpComponent() {
                 <div className="mb-2 block">
                     <Label htmlFor="email1">Your email</Label>
                 </div>
-                <TextInput id="email1" type="email" placeholder="name@flowbite.com" required />
+                <TextInput id="email1" type="email" placeholder="name@gmail.com" required />
             </div>
             <div>
                 <div className="mb-2 block">
