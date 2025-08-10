@@ -6,7 +6,7 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
-import secureLocalStorage from "react-secure-storage";
+// import secureLocalStorage from "react-secure-storage";
 
 export const useLoginWithGoogle = () => {
   const [user, setUser] = useState(null);

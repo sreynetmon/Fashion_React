@@ -37,7 +37,7 @@ function App() {
     <div>
       {currentUser ? (
         // User is logged in
-        <div>
+        <div className='mx-auto justify-items-center'>
           <h2>Welcome, {currentUser.displayName || currentUser.email}!</h2>
           <p>You are logged in with {getProvider()}</p>
           <div style={{ margin: '10px 0' }}>
@@ -45,13 +45,8 @@ function App() {
              
              <img
                 src={`${userProfile}`}
-                alt="Profile"
-                style={{
-                  width: '50px',
-                  height: '50px',
-                  borderRadius: '50%',
-                  border: '2px solid #ccc'
-                }}
+                alt="Profile" className='w-8 h-8 rounded-full border-1'
+            
                 onError={(e) => {
                   console.log('Image failed to load:', currentUser?.photoURL);
                   e.target.style.display = 'none';
@@ -75,24 +70,12 @@ function App() {
                 }}
               />
             ) : null} */}
-            <div
-              style={{
-                width: '50px',
-                height: '50px',
-                borderRadius: '50%',
-                backgroundColor: '#007bff',
-                color: 'white',
-                display: currentUser.photoURL ? 'none' : 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '20px',
-                fontWeight: 'bold'
-              }}
+            {/* <div className='w-8 h-8 rounded-2xl bg-blue-500 flex text-2xl font-bold'
             >
               {(currentUser.displayName || currentUser.email || 'U').charAt(0).toUpperCase()}
-            </div>
+            </div> */}
           </div>
-          <button className="btn" onClick={handleLogout}>
+          <button className="border-1 rounded-2xl w-[100px] h-[40px]" onClick={handleLogout}>
             {isPending ? "Signing out..." : "Sign Out"}
           </button>
         </div>
