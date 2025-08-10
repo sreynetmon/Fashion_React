@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
-import { auth } from "../Firebase/firebase-config"; // adjust path as needed
+import { auth } from "../../firebase/firebase-config"; // adjust path as needed
 import {
   GoogleAuthProvider,
   onAuthStateChanged,
   signInWithPopup,
   signOut,
 } from "firebase/auth";
+import secureLocalStorage from "react-secure-storage";
 
 export const useLoginWithGoogle = () => {
   const [user, setUser] = useState(null);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(false);
   const [isPending, setIsPending] = useState(false);
 
   const provider = new GoogleAuthProvider();

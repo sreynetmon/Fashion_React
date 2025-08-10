@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { auth } from "../Firebase/firebase-config"; // adjust path as needed
+import { auth } from "../../firebase/firebase-config"; // adjust path as needed
 import {
   FacebookAuthProvider,
   onAuthStateChanged,

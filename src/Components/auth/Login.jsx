@@ -11,6 +11,7 @@ import {
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
+import App from "../../App";
 
 export default function Login() {
 
@@ -56,6 +57,7 @@ export default function Login() {
   // const decrypt = AES.decrypt("@secure.s.car_access_token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJuZXQxMjNAZ21haWwuY29tIiwiZXhwIjoxNzU0MzU3MTM0LCJ0eXBlIjoiYWNjZXNzIn0.3Naoe_P1-2sbmsoOZ8DruvnO1600u7Jjk7dP_iZdR0s")
   // console.log("The decript of access: decript");
 
+
   return (
     <div className="flex justify-center items-center h-screen">
       <form onSubmit={handleSubmit(onSubmitting)} className="flex max-w-md flex-col gap-4 border-1 p-5 rounded-lg w-[50%] h-auto" >
@@ -76,10 +78,8 @@ export default function Login() {
         <Checkbox id="remember" />
         <Label htmlFor="remember">Remember me </Label>
       </div>
-      <div className="flex flex-row gap-5 mx-auto">
-        <FcGoogle />
-        <FaFacebook/>
-        <FaGithub/>
+      <div className="flex flex-col">
+        <App/>
       </div>
       <Button type="submit" disabled={isLoading}>
         {isLoading ? 'Logging in...' : 'Submit'}

@@ -7,7 +7,7 @@ const columns = [
     selector: (row) => (
       <img src={row.image} alt={row.make} width={45} height={45} />
     ),
-  },
+  }, 
 
   {
     name: "make",

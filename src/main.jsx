@@ -10,12 +10,12 @@ import Collection from './Pages/Collection';
 import About from './Pages/About';
 import Contact from './Pages/Contact';
 // import AuthLayout from './Layout/AuthLayout';
-import SignUp from './Components/oauth/SignUp';
+import SignUp from './Components/auth/SignUp';
 import {store} from './Components/redux/store';
 import { Provider } from "react-redux";
 import ProductsDetail from "./Pages/ProductsDetail";
 import RootLayout from "./Layout/RootLayout";
-import Login from "./Components/oauth/Login";
+import Login from "./Components/auth/Login";
 
 
 const router = createBrowserRouter([

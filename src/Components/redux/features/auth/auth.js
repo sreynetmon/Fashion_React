@@ -5,7 +5,7 @@ export const authApi = baseApi.injectEndpoints({
     reducerPath: "auth",
     endpoints: (build) =>({
         login: build.mutation({
-            query:({loginForm}) =>({
+            query:({useLogin}) =>({
                 url: 'login',
                 method: "POST",
                 body: JSON.stringify({email, password})

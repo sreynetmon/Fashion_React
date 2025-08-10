@@ -8,6 +8,7 @@ export default function SignUpComponent() {
     return (
         <div className="flex justify-center items-center h-screen ">
             <form className="flex max-w-md flex-col gap-4 border-1 p-5 rounded-lg w-[50%] h-auto">
+            <h1 className="text-center text-2xl text-blue-500 font-bold">Sign Up Form</h1>
             <div>
                 <div className="mb-2 block">
                     <Label htmlFor="email1">Your email</Label>
