@@ -8,9 +8,6 @@ import {
   storeRefreshToken, 
   getDecryptedAccessToken 
 } from "../../utils/tokenUtils";
-import { FcGoogle } from "react-icons/fc";
-import { FaFacebook } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa";
 import App from "../../App";
 
 export default function Login() {

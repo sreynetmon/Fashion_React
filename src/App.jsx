@@ -15,10 +15,15 @@ function App() {
   const isPending = githubPending || facebookPending || googlePending;
   // Determine which provider is being used
   const getProvider = () => {
-    if (githubUser) return 'GitHub';
-    if (facebookUser) return 'Facebook';
-    if (googleUser) return 'Google';
-    return '';
+    if (!currentUser || !currentUser.providerData || currentUser.providerData.length === 0) {
+      return 'Unknown';
+    }
+    const providerId = currentUser.providerData[0].providerId;
+    if (providerId.includes('google')) return 'Google';
+    if (providerId.includes('github')) return 'GitHub';
+    if (providerId.includes('facebook')) return 'Facebook';
+    if (providerId.includes('password')) return 'Email/Password';
+    return 'Unknown';
   };
   // Use the logout function from whichever service the user is logged in with
   const handleLogout = () => {
@@ -37,48 +42,41 @@ function App() {
     <div>
       {currentUser ? (
         // User is logged in
-        <div className='mx-auto justify-items-center'>
-          <h2>Welcome, {currentUser.displayName || currentUser.email}!</h2>
-          <p>You are logged in with {getProvider()}</p>
-          <div style={{ margin: '10px 0' }}>
-            {console.log("The profile user: ", currentUser?.photoURL)}
-             
-             <img
-                src={`${userProfile}`}
-                alt="Profile" className='w-8 h-8 rounded-full border-1'
-            
-                onError={(e) => {
-                  console.log('Image failed to load:', currentUser?.photoURL);
-                  e.target.style.display = 'none';
-                  e.target.nextSibling.style.display = 'flex';
-                }}
-              />
-            {/* {currentUser?.phtoURL? (
+        (
+          <div className='flex flex-col items-center justify-center p-8 bg-white rounded-2xl shadow-lg space-y-4 text-center'>
+          <h2 className='text-2xl font-semibold text-gray-800'>Welcome, {currentUser.displayName || currentUser.email}!</h2>
+          <p className='text-gray-600'>You are logged in with {getProvider()}</p>
+          
+          <div className='my-4 flex justify-center items-center'>
+            {currentUser.photoURL ? (
               <img
-                src={currentUser?.photoURL}
+                src={currentUser.photoURL}
                 alt="Profile"
-                style={{
-                  width: '50px',
-                  height: '50px',
-                  borderRadius: '50%',
-                  border: '2px solid #ccc'
-                }}
+                className='w-12 h-12 rounded-full border-2 border-gray-300 object-cover'
+                // This onError handler provides a fallback for broken image URLs
                 onError={(e) => {
-                  console.log('Image failed to load:', currentUser?.photoURL);
                   e.target.style.display = 'none';
-                  e.target.nextSibling.style.display = 'flex';
+                  e.target.parentNode.querySelector('.fallback-avatar').style.display = 'flex';
                 }}
               />
-            ) : null} */}
-            {/* <div className='w-8 h-8 rounded-2xl bg-blue-500 flex text-2xl font-bold'
+            ) : null}
+            {/* Fallback avatar with the user's initial */}
+            <div
+              className='fallback-avatar w-12 h-12 rounded-full bg-blue-500 text-white text-xl font-bold flex items-center justify-center border-2 border-gray-300'
+              style={{ display: currentUser.photoURL ? 'none' : 'flex' }}
             >
               {(currentUser.displayName || currentUser.email || 'U').charAt(0).toUpperCase()}
-            </div> */}
+            </div>
           </div>
-          <button className="border-1 rounded-2xl w-[100px] h-[40px]" onClick={handleLogout}>
+          
+          <button
+            className="w-full px-6 py-2 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600 transition-colors duration-200"
+            onClick={handleLogout}
+          >
             {isPending ? "Signing out..." : "Sign Out"}
           </button>
         </div>
+        )
       )
       : (
           // User is not logged in
